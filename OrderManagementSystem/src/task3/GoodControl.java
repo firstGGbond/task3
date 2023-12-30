@@ -57,8 +57,8 @@ public class GoodControl {
             Order order = new Order();
 
             /*
-            将查询到的信息导入动态数组,
-            便于将相同订单中的物品放入同一个good类数组中,为了储存进每个订单相关的Order类实例化对象中
+            	将查询到的信息导入动态数组,
+            	便于将相同订单中的物品放入同一个good类数组中,为了储存进每个订单相关的Order类实例化对象中
             */
             while (rs.next()) {
                 Object[] object = new Object[4];
@@ -70,7 +70,7 @@ public class GoodControl {
             }
             System.out.println(l.size());
             /*导入good类实例化对象到order类的实例化对象中,
-            再将其导入Order类的动态数组中*/
+                              再将其导入Order类的动态数组中*/
             for (int i = 0; i < l.size(); i++) {
                 int orderId = (int) l.get(i)[0];
                 int goodId = (int) l.get(i)[1];
@@ -84,12 +84,12 @@ public class GoodControl {
                     }
                 }
                 /*
-                如果前后id不同，说明下一次循环时,商品来自其他的订单
-                (为了防止超出数组长度范围,分两种情况)
-                如果 i != l.size()-1 则比较其后一个是否为相同商品
-                若不相同,则导入good类的数组到order类实例化对象的动态数组中;
-                如果 i = l.size()-1 则比较其与前一个是否是相同订单中的商品.
-                若不相同,则需导入新的good类的数组到order类实例化对象的动态数组中;
+                	如果前后id不同，说明下一次循环时,商品来自其他的订单
+                	(为了防止超出数组长度范围,分两种情况)
+                	如果 i != l.size()-1 则比较其后一个是否为相同商品
+                	若不相同,则导入good类的数组到order类实例化对象的动态数组中;
+                	如果 i = l.size()-1 则比较其与前一个是否是相同订单中的商品.
+                	若不相同,则需导入新的good类的数组到order类实例化对象的动态数组中;
                  */
                 if (i != l.size() - 1) {
                     if (orderId != (int) l.get(i + 1)[0]) {

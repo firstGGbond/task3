@@ -18,7 +18,6 @@ public class JdbcUtil {
             password  = "123456";
 
         } catch (Exception e) {
-            e.printStackTrace();
         }
     }
     /*ªÒ»°¡¥Ω”*/
